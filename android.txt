@@ -1,0 +1,9 @@
+adb tcpip 5555
+adb shell ifconfig wlan0    //查看手机ip地址
+adb connect  192.168.2.101 //这是设备的ip
+
+
+https://blog.csdn.net/xiabing082/article/details/54376461
+
+调试利器
+Log.e("addLogMessage", strMsg);
