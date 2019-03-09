@@ -1,0 +1,1 @@
+truffle compile 编译没有反应   添加sudo
