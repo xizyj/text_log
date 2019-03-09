@@ -1,0 +1,8 @@
+{
+"server":"145.239.174.178",
+"server_port":51216,
+"local_port":1080,
+"password":"Qwer123",
+"timeout":600,
+"method":"aes-256-gcm"
+}

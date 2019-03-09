@@ -1,0 +1,22 @@
+安装了 Anaconda 之后，进行 sudo add-apt-repository 报错：
+
+File "/usr/bin/add-apt-repository", line 11,
+
+ImportError: No module named softwareproperties.SoftwareProperties
+
+ 
+
+原因： 系统上同时存在多个版本的 python, /usr/bin/add-apt-repository 的第一行是：
+
+#! /usr/bin/python3
+
+/usr/bin/python3 链接到 python3.6
+
+解决方案：
+
+/usr/bin/add-apt-repository 的第一行改为：
+
+#! /usr/bin/python3.4
+
+
+

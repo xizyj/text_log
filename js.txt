@@ -1,0 +1,3 @@
+localStorage使用：
+localStorage.setItem('local_my_user',JSON.stringify(data.user));
+JSON.parse(localStorage.getItem("local_my_user"));

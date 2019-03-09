@@ -1,0 +1,6 @@
+.cv .main .active{
+    background: url("../../img/icon/ok2.png") no-repeat;
+    background-size: 10% 100%;
+    background-color: #F2F2F2;
+    background-position:90%;
+}

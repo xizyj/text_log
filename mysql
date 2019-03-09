@@ -1,0 +1,39 @@
+show variables like '%char%';
+
+set character_set_server=utf8;
+
+mysql -u root -p
+
+一、启动方式
+1、使用 service 启动：service mysql start
+
+
+二、停止
+1、使用 service 启动：service mysql stop
+
+
+三、重启
+1、使用 service 启动：service mysql restart
+
+
+导出
+ mysqldump -uroot -p67792809  opm >db.sql;
+
+运行脚本
+source /home/a.sql
+
+
+mysql远程访问
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION; 
+flush privileges;
+
+
+模糊查询
+like ？
+"%"+key+"%"
+
+用户组:
+# useradd zyj #创建用户 
+# passwd zyj #修改密码 
+
+

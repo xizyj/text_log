@@ -1,0 +1,15 @@
+安装Express
+npm install express -g
+npm install express-generator -g
+
+
+初始化项目
+  cd /Users/SPRINT/Desktop 进入桌面
+  express 项目名称
+
+1.cd APIServer //进入项目根目录
+2.npm install  //安装依赖
+
+npm start   //启动服务器
+
+

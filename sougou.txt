@@ -1,0 +1,1 @@
+搜狗输入法崩溃问题，删除~/.config 下的搜狗输入配置文件夹： SogouPY 、 SogouPY.users 、 sogou-qimpanel

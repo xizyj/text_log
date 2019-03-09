@@ -1,0 +1,237 @@
+import requests
+import os
+import re
+import csv
+import time
+import json
+import traceback
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Mobile Safari/537.36'}
+Cookies={'Cookie':'_T_WM=be19a214659d8e7af686446f6cb014d0; H5_INDEX=3; H5_INDEX_TITLE=Skyeee--; ALF=1524270320; SCF=Ahs4SHf4nScsBGAwoZOle2usPDArJiYLzKTT08A3idH7jhTwUTGUO4wImi_uY_MRyOQBsg3SSehUAmJCwz7ljpI.; SUB=_2A253tojzDeRhGeNP6VEV8S3NyDSIHXVVWCi7rDV6PUJbktANLUvTkW1NTjPuBB1ROk7bsI3klGqyTQIAKsSo1IiK; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WWpV3LVuSY49ZQgCZkibMxP5JpX5K-hUgL.Fo-peoeXeKepe0n2dJLoI7yKINLL9g-_TBtt; SUHB=04WuuxKo86wyYO; SSOLoginState=1521678473; WEIBOCN_FROM=1110006030; M_WEIBOCN_PARAMS=luicode%3D10000011%26lfid%3D100103type%253D39%2526q%253D%25E4%25B8%259C%25E5%258D%258E%25E5%25A4%25A7%25E5%25AD%25A6%26featurecode%3D20000320%26fid%3D100103type%253D3%2526scho%253D%25E4%25B8%259C%25E5%258D%258E%25E5%25A4%25A7%25E5%25AD%25A6%2526specfilter%253D1%2526log_type%253D2%26uicode%3D10000011'}
+
+
+class Weibo(object):
+    # 用户信息，同时也能获取到uid、oid等关键参数->用于组成接下来获取微博的
+    def usr_info(self, user_id):
+
+        url = 'https://m.weibo.cn/api/container/getIndex?type=uid&value={user_id}'.format(user_id=user_id)
+        resp = requests.get(url, headers=headers, cookies=Cookies)
+        print(resp)
+        jsondata = resp.json()
+        print(jsondata)
+        nickname = jsondata.get('data').get('userInfo').get('screen_name')
+        mblog_num = jsondata.get('data').get('userInfo').get('statuses_count')
+        verified = jsondata.get('data').get('userInfo').get('verified')
+        verified_reason = jsondata.get('data').get('userInfo').get('verified_reason')
+        gender = jsondata.get('data').get('userInfo').get('gender')
+        urank = jsondata.get('data').get('userInfo').get('urank')  # 用户等级
+        mbrank = jsondata.get('data').get('userInfo').get('mbrank')
+        followers_count = jsondata.get('data').get('userInfo').get('followers_count')
+        follow_count = jsondata.get('data').get('userInfo').get('follow_count')
+        try:
+            uid = jsondata.get('data').get('userInfo').get('toolbar_menus')[0].get('params').get('uid')
+            fid = jsondata.get('data').get('userInfo').get('toolbar_menus')[1].get('actionlog').get('fid')
+            oid = jsondata.get('data').get('userInfo').get('toolbar_menus')[2].get('params').get('menu_list')[0].get(
+                'actionlog').get('oid')
+            cardid = jsondata.get('data').get('userInfo').get('toolbar_menus')[1].get('actionlog').get('cardid')
+        except:
+            uid = ''
+            fid = ''
+            oid = ''
+            cardid = ''
+        containerid = jsondata.get('data').get('tabsInfo').get('tabs')[0].get('containerid')
+        print('输出刚刚获取的值：')
+        print(nickname,mblog_num,verified,verified_reason,gender,urank,mbrank,followers_count,follow_count,uid,fid,cardid,containerid,oid)
+        Info=dict()
+        Info['nickname']= nickname
+        Info['mblog_num']=mblog_num
+        Info['erified']= verified
+        Info['verified_reason']=verified_reason
+        Info['gender']=gender
+        Info['urank']=urank
+        Info['mbrank']=mbrank
+        Info['followers_count']=followers_count
+        Info['follow_count']=follow_count
+        Info['uid']=uid
+        Info['fid']=fid
+        Info['cardid']=cardid
+        Info['containerid']=containerid
+        Info['oid']=oid
+
+
+        print(Info)
+        return Info
+
+    # 获取所有热门微博信息（所发微博内容，每条微博的评论id,转发数，评论数...）
+    def mblog_list(self, uid, oid):
+        Mblog_list = []
+        base_url = 'https://m.weibo.cn/api/container/getIndex?containerid={oid}&type=uid&value={uid}'
+        page_url = 'https://m.weibo.cn/api/container/getIndex?containerid={oid}&type=uid&value={uid}&page={page}'
+        url = base_url.format(oid=oid, uid=uid)
+        resp = requests.get(url, headers=headers, cookies=Cookies)
+
+        response = resp.json()
+        # 热门微博数total
+        total = response['data']['cardlistInfo']['total']
+
+        # 热门微博网页数
+        page_num = int(int(total) / 10) + 1
+        for i in range(1, page_num + 1, 1):
+            p_url = page_url.format(oid=oid, uid=uid, page=i)
+            print('page=',i)
+            page_resp = requests.get(p_url, headers=headers, cookies=Cookies)
+            page_data = page_resp.json()
+            try:
+                cards = page_data['data']['cards']
+                num=1
+                for card in cards:
+                    mblog = card['mblog']
+                    created_at = mblog['created_at']
+                    id = mblog['id']
+                    dirty_text = mblog['text']  # dirty_text中含有很多链接杂质
+                    cleaned1 = re.sub(r'<span .*?</span>', '', dirty_text)
+                    text = re.sub(r"<a .*?</a>", '', cleaned1)
+                    reposts_count = mblog['reposts_count']
+                    comments_count = mblog['comments_count']
+                    attitudes_count = mblog['attitudes_count']
+                    mblog_data = {'created_at': created_at, 'id': id, 'text': text, 'reposts_count': reposts_count,
+                                  'comments_count': comments_count, 'attitudes_count': attitudes_count}
+                    Mblog_list.append(mblog_data)
+                    print('no.',num,':',mblog_data)
+                    num=num+1
+            except:
+                continue
+            time.sleep(1)
+        return Mblog_list
+    def AverageReposts(self, uid, oid,ListX):
+        base_url = 'https://m.weibo.cn/api/container/getIndex?containerid={oid}&type=uid&value={uid}'
+        page_url = 'https://m.weibo.cn/api/container/getIndex?containerid={oid}&type=uid&value={uid}&page={page}'
+        url = base_url.format(oid=oid, uid=uid)
+        resp = requests.get(url, headers=headers, cookies=Cookies)
+
+        response = resp.json()
+        # 热门微博数total
+        total = response['data']['cardlistInfo']['total']
+        total=total-10
+        print('total:',total)
+        sum=0
+        for x in ListX:
+            x.get('reposts_count')
+            sum=sum+float(x.get('reposts_count'))
+        average=sum/total
+        print('mean:',average)
+        return average
+
+
+
+try:
+    #oxlxs:偶像练习生
+    #gjbz:国家宝藏
+    #slqj:声临其境
+    #三个热门综艺节目的id
+    user_id_oxlxs='6382798471'
+    user_id_gjbz='6339534350'
+    user_id_slqj='6425370552'
+    user_id_baiye='6015940391'
+    user_id_taohua='5639143988'
+    user_id_oldtime='6241214066'
+    MyWeibo_oxlxs=Weibo()
+    MyWeibo_gjbz = Weibo()
+    MyWeibo_slqj = Weibo()
+    #三个热门的电视剧
+    #baiye:白夜追凶
+    #taohua:三生三世十里桃花
+    #oldtime:人民的名义
+    MyWeibo_baiye=Weibo()
+    MyWeibo_taohua=Weibo()
+    MyWeibo_oldtime=Weibo()
+
+    info_oxlxs={}
+    info_gjbz ={}
+    info_slqj={}
+    info_baiye={}
+    info_taohua={}
+    info_oldtime={}
+
+    #获取综艺节目官博信息
+    #info_oxlxs=MyWeibo_oxlxs.usr_info(user_id_oxlxs)
+    #info_gjbz = MyWeibo_gjbz.usr_info(user_id_gjbz)
+    #info_slqj= MyWeibo_slqj.usr_info(user_id_slqj)
+    #info_baiye=MyWeibo_baiye.usr_info(user_id_baiye)
+    #info_taohua=MyWeibo_taohua.usr_info(user_id_taohua)
+    info_oldtime=MyWeibo_oldtime.usr_info(user_id_oldtime)
+
+    #uid_oxlxs=info_oxlxs['uid']
+    #oid_oxlxs=info_oxlxs['oid']
+
+    #uid_gjbz = info_gjbz['uid']
+    #oid_gjbz = info_gjbz['oid']
+
+    #uid_slqj = info_slqj['uid']
+    #oid_slqj = info_slqj['oid']
+
+    #uid_baiye = info_baiye['uid']
+    #oid_baiye = info_baiye['oid']
+
+    #uid_taohua = info_taohua['uid']
+    #oid_taohua = info_taohua['oid']
+
+    uid_oldtime = info_oldtime['uid']
+    oid_oldtime = info_oldtime['oid']
+
+
+
+    MyList_oxlxs=[]
+    MyList_gjbz = []
+    MyList_slqj = []
+    MyList_baiye=[]
+    MyList_taohua=[]
+    MyList_oldtime=[]
+
+    #获取综艺节目热门的热门微博
+    #MyList_oxlxs=MyWeibo_oxlxs.mblog_list(uid_oxlxs,oid_oxlxs)
+    #MyList_gjbz = MyWeibo_gjbz.mblog_list(uid_gjbz, oid_gjbz)
+    #MyList_slqj = MyWeibo_slqj.mblog_list(uid_slqj, oid_slqj)
+    #获取电视剧热门微博
+    #MyList_baiye=MyWeibo_baiye.mblog_list(uid_baiye,oid_baiye)
+    #MyList_taohua=MyWeibo_taohua.mblog_list(uid_taohua,oid_taohua)
+    MyList_oldtime=MyWeibo_oldtime.mblog_list(uid_oldtime,oid_oldtime)
+    #写入txt文件
+    #file_object1 = open(r'D:/Python/crawler/MyProject/WeiboOxlxs.txt', 'w',encoding='utf-8')
+    #for ob1 in MyList_oxlxs:
+        #file_object1.write(str(ob1))
+        #file_object1.write("\n")
+    #file_object1.close()
+
+    #file_object2 = open(r'D:/Python/crawler/MyProject/WeiboGjbz.txt', 'w',encoding='utf-8')
+    #for ob2 in MyList_gjbz:
+        #file_object2.write(str(ob2))
+        #file_object2.write("\n")
+    #file_object2.close()
+
+    #file_object3 = open(r'D:/Python/crawler/MyProject/WeiboSlqj.txt', 'w',encoding='utf-8')
+
+    #for ob3 in MyList_slqj:
+        #file_object3.write(str(ob3))
+        #file_object3.write("\n")
+    #file_object3.close()
+
+    file_object6 = open(r'D:/Python/crawler/MyProject/Weibooldtime.txt', 'w', encoding='utf-8')
+    for ob6 in MyList_gjbz:
+        file_object6.write(str(ob6))
+        file_object6.write("\n")
+    file_object6.close()
+    #平均转发
+    #ave_gjbz=MyWeibo_gjbz.AverageReposts(uid_gjbz,oid_gjbz,MyList_gjbz)
+
+
+    #平均评论
+
+    #平均点赞
+
+
+
+
+
+except Exception as e:
+    print(traceback.format_exc())

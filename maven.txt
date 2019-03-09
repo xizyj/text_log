@@ -1,0 +1,19 @@
+（1）找到 apache-maven-3.5.2\conf 目录中的 settings.xml 文件
+
+（2） 修改maven 本地仓库地址,
+
+       首先在D:\Program Files创建文件夹MavenRepository ；
+
+       找到settings.xml 文件中  <localRepository> </localRepository>打开注释修改如下：
+
+    <localRepository>D:\Program Files\MavenRepository</localRepository>
+
+（3）添加阿里源 ，找到  <mirrors>  </ mirrors>标签，在标签内部 添加内容如下：
+
+    <mirror>
+      <id>AliMaven</id>
+      <name>aliyun maven</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+      <mirrorOf>central</mirrorOf>        
+    </mirror>
+

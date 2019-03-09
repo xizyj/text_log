@@ -1,0 +1,45 @@
+django-admin.py startproject p_weibo_py
+python3 manage.py runserver
+
+python3 manage.py inspectdb  //生成数据库模型
+
+
+前端 获取json
+url = "http://example/?question=" + question + "&rand=" + Math.random();
+$.getJSON(url, function(json){
+  answer = json.answer;
+  alert(answer);
+});
+
+后端 返回json
+from django.http import HttpResponse
+from django.utils import simplejson
+if request.method == 'GET' and 'question' in request.GET:
+  question = request.GET['question']
+  print(question)
+  data = {"answer": "answer"}
+  #ensure_ascii=False用于处理中文
+  return HttpResponse(simplejson.dumps(data, ensure_ascii=False))
+
+后端 返回json（推荐）
+import json
+from django.http import HttpResponse
+def get_an_apple(request):
+    resp = {'errorcode': 100, 'detail': 'Get success'}
+    return HttpResponse(json.dumps(resp), content_type="application/json")
+
+
+#版本切换
+sudo update-alternatives --config python
+
+python3 -m django --version
+
+
+安装
+sudo apt-get install python3-pip
+升级
+sudo pip3 install --upgrade pip
+卸载
+sudo apt-get remove python3-pip
+
+想用python3的pip3，可以到python3目录下找到pip3运行 ./pip3

@@ -1,0 +1,9 @@
+react-native run-android   //运行项目
+
+Using npm: npm install react-native-gifted-chat --save
+Using Yarn: yarn add react-native-gifted-chat
+
+yarn add react-native-cli
+
+在Cygwin输入npm start，接着再开一个窗口输入react-native  run-android
+

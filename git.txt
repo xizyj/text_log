@@ -1,0 +1,54 @@
+将本地的项目上传到码云
+
+1、码云上创建一个项目 testgit (名字随你)
+
+2、本地创建一个文件夹D:/testgit，然后使用git bash    
+
+3、cd 到本地文件夹中D:/testgit，
+
+4、使用 git init 命令 ，初始化一个git 本地仓库（项目）,会在本地创建一个 .git 的文件夹
+
+5、使用git remote add origin https://gitee.com/你的码云用户名/testgit      //添加远程仓库
+
+6、使用 git pull origin master 命令，将码云上的仓库pull到本地文件夹
+
+7、将要上传的文件，添加到刚刚创建的文件夹
+
+8、使用git add . 或者 git add + 文件名 (将文件保存到缓存区)
+
+9、使用git commit -m '描述新添加的文件内容'  (就是注释)   （文件保存到本地仓库）
+
+10、使用git push origin master ，将本地仓库推送到远程仓库
+
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+
+　首先要做的就是先将人家的项目克隆到本地：git clone + 项目地址
+
+　　然后进入项目目录：cd + 已克隆好的项目目录名
+
+　　然后切换分支，git checkout + 分支名（必须与所要提交代码的远程分支同名）
+
+　　然后将所要提交的代码复制到该分支下，然后依次执行
+
+　　（1）git add .     （注意：add与句号间有空格，否则会报错）
+
+　　（2）git commit -m "change log" 
+
+　　（3）git push origin +远程分知名
+
+　　如果你不是该项目的开发者，第一次执行该操作可能会要求输入用户名和密码，注意，此时要输入的是该项目管理员 码云的用户名和密码。当然，最简单的办法就是让该项目的管理员给予你开发者的权限，这样你就可以直接提交了。
+
+　　第一次执行完后，在本地电脑控制面板>用户账户>凭据管理器>Windows凭据中，会保存有上传到GitHub或码云时的用户名和密码，可以更改为自己的用户名和密码，以后提交的时候就会是自己的账号，而不再是人家的账号。
+
+
+
+
+方法一 通过命令直接修改远程地址
+
+    进入git_test根目录
+    git remote 查看所有远程仓库， git remote xxx 查看指定远程仓库地址
+    git remote set-url origin http://192.168.100.235:9797/john/git_test.git
+

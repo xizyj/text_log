@@ -1,0 +1,189 @@
+[3J[H[2J
+#############################################################
+# One click Install Shadowsocks-Python server               #
+# Intro: https://teddysun.com/342.html                      #
+# Author: Teddysun <i@teddysun.com>                         #
+# Github: https://github.com/shadowsocks/shadowsocks        #
+#############################################################
+
+Please enter password for shadowsocks-python
+(Default password: teddysun.com):
+---------------------------
+password = Qwer123
+---------------------------
+
+Please enter a port for shadowsocks-python [1-65535]
+(Default port: 14464):
+---------------------------
+port = 51216
+---------------------------
+
+Please select stream cipher for shadowsocks-python:
+[0;32m1[0m) aes-256-gcm
+[0;32m2[0m) aes-192-gcm
+[0;32m3[0m) aes-128-gcm
+[0;32m4[0m) aes-256-ctr
+[0;32m5[0m) aes-192-ctr
+[0;32m6[0m) aes-128-ctr
+[0;32m7[0m) aes-256-cfb
+[0;32m8[0m) aes-192-cfb
+[0;32m9[0m) aes-128-cfb
+[0;32m10[0m) camellia-128-cfb
+[0;32m11[0m) camellia-192-cfb
+[0;32m12[0m) camellia-256-cfb
+[0;32m13[0m) chacha20-ietf-poly1305
+[0;32m14[0m) chacha20-ietf
+[0;32m15[0m) chacha20
+[0;32m16[0m) rc4-md5
+Which cipher you'd select(Default: aes-256-gcm):
+---------------------------
+cipher = aes-256-gcm
+---------------------------
+
+
+Press any key to start...or Press Ctrl+C to cancel
+命中:1 http://mirrors.aliyun.com/ubuntu xenial InRelease
+命中:2 http://mirrors.aliyun.com/ubuntu xenial-updates InRelease
+命中:3 http://mirrors.aliyun.com/ubuntu xenial-backports InRelease
+命中:4 http://mirrors.aliyun.com/ubuntu xenial-security InRelease
+忽略:5 http://pkg.jenkins.io/debian-stable binary/ InRelease
+命中:6 http://pkg.jenkins.io/debian-stable binary/ Release
+命中:8 http://ppa.launchpad.net/ethereum/ethereum-dev/ubuntu disco InRelease
+命中:9 http://archive.canonical.com/ubuntu xenial InRelease
+命中:10 http://ppa.launchpad.net/ethereum/ethereum/ubuntu disco InRelease
+忽略:11 http://ppa.launchpad.net/ethereum/ethereum-qt/ubuntu disco InRelease
+错误:12 http://ppa.launchpad.net/ethereum/ethereum-qt/ubuntu disco Release
+  404  Not Found
+命中:13 http://archive.ubuntu.com/ubuntu xenial InRelease
+正在读取软件包列表...
+E: 仓库 “http://ppa.launchpad.net/ethereum/ethereum-qt/ubuntu disco Release” 没有 Release 文件。
+正在读取软件包列表...
+正在分析软件包的依赖关系树...
+正在读取状态信息...
+libtool 已经是最新版 (2.4.6-2)。
+python-setuptools 已经是最新版 (36.2.7-2)。
+make 已经是最新版 (4.1-9.1)。
+curl 已经是最新版 (7.55.1-1ubuntu2.6)。
+python-dev 已经是最新版 (2.7.14-2ubuntu1)。
+libssl-dev 已经是最新版 (1.0.2g-1ubuntu13.6)。
+unzip 已经是最新版 (6.0-21ubuntu1)。
+autoconf 已经是最新版 (2.69-11)。
+gcc 已经是最新版 (4:7.2.0-1ubuntu1)。
+automake 已经是最新版 (1:1.15-6ubuntu1)。
+openssl 已经是最新版 (1.0.2g-1ubuntu13.6)。
+wget 已经是最新版 (1.19.1-3ubuntu1.2)。
+python 已经是最新版 (2.7.14-2ubuntu1)。
+下列软件包是自动安装的并且现在不需要了：
+  account-plugin-facebook account-plugin-flickr account-plugin-google
+  cgmanager deja-dup-backend-gvfs evolution-data-server-online-accounts
+  fonts-horai-umefont fonts-unfonts-core gir1.2-gkbd-3.0 gir1.2-grilo-0.2
+  gir1.2-javascriptcoregtk-3.0 gir1.2-tracker-1.0 gir1.2-webkit-3.0
+  gir1.2-xkl-1.0 glassfish-javaee gnome-exe-thumbnailer grub-efi-amd64-bin
+  gstreamer1.0-clutter hwdata imagemagick-common libaccount-plugin-1.0-0
+  libaccount-plugin-generic-oauth libaccount-plugin-google libamd2.4.1
+  libandroid-properties1 libappstream3 libarmadillo6 libasm4-java libass5
+  libavcodec-ffmpeg56 libavfilter-ffmpeg5 libavformat-ffmpeg56
+  libavresample-ffmpeg2 libavutil-ffmpeg54 libbind9-90 libblas-common
+  libbluray1 libboost-date-time1.58.0 libboost-filesystem1.58.0
+  libboost-iostreams1.58.0 libboost-system1.58.0 libbsh-java libcamd2.4.1
+  libcamel-1.2-52 libcamel-1.2-54 libcapi20-3 libccolamd2.9.1 libcglib3-java
+  libcgmanager0 libcholmod3.0.6 libchromaprint0 libclassworlds-java
+  libclutter-gst-2.0-0 libcolamd2.8.0 libcolamd2.9.1
+  libcommons-collections3-java libcommons-compress-java libcommons-dbcp-java
+  libcommons-httpclient-java libcommons-lang-java libcommons-net2-java
+  libcommons-pool-java libctemplate2v5 libctemplate3 libdap17v5 libdbus-1-dev
+  libdns100 libdom4j-java libdoxia-core-java libeasymock-java libebook-1.2-16
+  libebook-contacts-1.2-1 libecal-1.2-18 libecj-java libeclipse-aether-java
+  libedata-cal-1.2-27 libedataserver-1.2-20 libedataserver-1.2-21 libefivar0
+  libevent-2.0-5 libevent-core-2.0-5 libfwup0 libgdal1i libgdict-1.0-9
+  libgdict-common libgee2 libgeos-3.5.0 libgeronimo-ejb-3.0-spec-java
+  libgeronimo-jms-1.1-spec-java libgeronimo-osgi-support-java
+  libgeronimo-validation-1.0-spec-java libgfortran3 libglew1.10 libglew1.13
+  libglewmx1.10 libgrilo-0.2-1 libgsoap8 libgstreamer-plugins-base0.10-0:i386
+  libgstreamer0.10-0:i386 libgtop-2.0-10 libgtop2-10 libhardware2 libhdf5-10
+  libhud2 libhunspell-1.3-0 libhybris libhybris-common1 libical1a
+  libicu55:i386 libimobiledevice4 libisc95 libisccc90 libisccfg90 libisl13
+  libjavascriptcoregtk-3.0-0 libjaxen-java libjdom1-java libjdom2-java
+  libjetty-java libjson-c2:i386 liblircclient0 libllvm3.6v5 liblouis2
+  liblouis9 liblouisutdml6 liblua5.1-0 liblwres90 libmaven-archiver-java
+  libmaven2-core-java libmedia1 libmimic0 libmircommon5 libmozjs-24-0v5
+  libmsi0 libmysqlclient18 libmysqlcppconn7v5 libnm-glib-vpn1 libnm-gtk-common
+  libnma-common libntdb1 libobjenesis-java libopencv-calib3d2.4v5
+  libopencv-contrib2.4v5 libopencv-core2.4v5 libopencv-features2d2.4v5
+  libopencv-flann2.4v5 libopencv-highgui2.4v5 libopencv-imgproc2.4v5
+  libopencv-legacy2.4v5 libopencv-ml2.4v5 libopencv-objdetect2.4v5
+  libopencv-video2.4v5 libopenjpeg5 liborcus-0.10-0v5 libosgi-annotation-java
+  libosgi-compendium-java libosgi-core-java liboxideqt-qmlplugin
+  liboxideqtcore0 liboxideqtquick0 libpackagekit-glib2-16 libpango1.0-0
+  libplexus-ant-factory-java libplexus-archiver-java
+  libplexus-bsh-factory-java libplexus-cli-java
+  libplexus-component-metadata-java libplexus-container-default-java
+  libplexus-container-default1.5-java libplexus-containers-java
+  libplexus-containers1.5-java libplexus-interactivity-api-java
+  libplexus-io-java libpng12-0:i386 libpoppler52 libpoppler58
+  libpostproc-ffmpeg53 libprocps4 libproj9 libprotobuf-lite9v5 libprotobuf9v5
+  libpth20 libpython3.5 libpython3.5-dev libpython3.5-minimal
+  libpython3.5-stdlib libqdox-java libqdox2-java libqmi-glib1 libqpdf13v5
+  libqpdf17 libqt5clucene5 libqt5feedback5 libqt5organizer5 libqt5quicktest5
+  libquvi-scripts libquvi7 libraw10 libraw15 librhythmbox-core9
+  libschroedinger-1.0-0 libservlet2.5-java libsignon-extension1
+  libsignon-plugins-common1 libsnappy-java libsnappy-jni
+  libspice-client-gtk-3.0-4 libspring-aop-java libspring-beans-java
+  libspring-context-java libspring-core-java libspring-expression-java
+  libspring-instrument-java libsuitesparseconfig4.4.6 libsuperlu4
+  libswresample-ffmpeg1 libswscale-ffmpeg3 libtomcat8-java
+  libtracker-control-1.0-0 libtracker-miner-1.0-0 libtracker-sparql-1.0-0
+  libumfpack5.7.1 libunity-action-qt1 libusbmuxd2 libvpx2 libvpx3 libvpx3:i386
+  libvsqlitepp3v5 libwagon-java libwebkitgtk-3.0-0 libwebp5 libwebpmux1
+  libwebrtc-audio-processing-0 libwildmidi1 libwine-dev libx265-79
+  libxapian-1.3-5 libxapian22v5 libxbean-java libxbean-reflect-java
+  libxcb-xf86dri0 libxom-java libxpp2-java libxpp3-java libxtables11
+  libxz-java linux-headers-4.2.0-16 linux-headers-4.2.0-16-generic
+  linux-headers-4.4.0-116 linux-headers-4.4.0-116-generic
+  linux-image-4.2.0-16-generic linux-image-4.2.0-42-generic
+  linux-image-4.4.0-116-generic linux-image-extra-4.2.0-16-generic
+  linux-image-extra-4.2.0-42-generic linux-image-extra-4.4.0-116-generic
+  linux-signed-image-4.2.0-16-generic linux-signed-image-4.2.0-42-generic
+  linux-signed-image-4.4.0-116-generic mountall msitools node-sigmund oneconf
+  oneconf-common oxideqt-codecs plainbox-provider-resource-generic
+  plainbox-secure-policy pyotherside python-cffi python-characteristic
+  python-cups python-dbus-dev python-debian python-debtagshw python-defer
+  python-ecdsa python-ntdb python-oneconf python-pexpect
+  python-piston-mini-client python-ptyprocess python-pyatspi python-pycparser
+  python-pyodbc python-xapian python3-cffi python3-checkbox-support
+  python3-colorama python3-distlib python3-guacamole python3-jinja2
+  python3-oauth python3-oneconf python3-padme python3-piston-mini-client
+  python3-ply python3-pyasn1 python3-pycparser python3-pyparsing
+  python3-simplejson python3-webencodings python3-xlsxwriter python3.5
+  python3.5-dev python3.5-minimal qml-module-io-thp-pyotherside
+  qml-module-qtfeedback qml-module-qtquick-localstorage qml-module-qttest
+  qml-module-ubuntu-onlineaccounts qml-module-ubuntu-performancemetrics
+  qmlscene qtdeclarative5-accounts-plugin qtdeclarative5-dev-tools
+  qtdeclarative5-localstorage-plugin qtdeclarative5-qtfeedback-plugin
+  qtdeclarative5-test-plugin qtdeclarative5-unity-action-plugin rename shim
+  signon-keyring-extension signon-plugin-oauth2 signon-plugin-password
+  signon-ui signon-ui-service signon-ui-x11 signond
+  software-center-aptdaemon-plugins suru-icon-theme telepathy-indicator
+  ttf-wqy-microhei ubuntu-mobile-icons ubuntu-ui-toolkit-theme
+  unity-control-center-signon unity-scope-audacious unity-scope-clementine
+  unity-scope-gdrive unity-scope-gmusicbrowser unity-scope-gourmet
+  unity-scope-guayadeque unity-scope-musique wine64-tools
+  xserver-xorg-video-neomagic xserver-xorg-video-openchrome
+  xserver-xorg-video-savage xserver-xorg-video-siliconmotion
+  xserver-xorg-video-sisusb xserver-xorg-video-tdfx xserver-xorg-video-trident
+使用'sudo apt autoremove'来卸载它(它们)。
+升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 144 个软件包未被升级。
+--2019-02-27 16:58:36--  https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz
+正在解析主机 github.com (github.com)... 13.250.177.223, 13.229.188.59, 52.74.223.119
+正在连接 github.com (github.com)|13.250.177.223|:443... 已连接。
+已发出 HTTP 请求，正在等待回应... 302 Found
+位置：https://github-production-release-asset-2e65be.s3.amazonaws.com/7710647/83a2fc2c-e01e-11e7-93d1-34e5a92f4011?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190227%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190227T085837Z&X-Amz-Expires=300&X-Amz-Signature=e62c046fd2b0073fceffcc021affb1c9cc7774f2e4dae7f0cfe127fb4b0a7e41&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dlibsodium-1.0.16.tar.gz&response-content-type=application%2Foctet-stream [跟随至新的 URL]
+--2019-02-27 16:58:37--  https://github-production-release-asset-2e65be.s3.amazonaws.com/7710647/83a2fc2c-e01e-11e7-93d1-34e5a92f4011?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190227%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190227T085837Z&X-Amz-Expires=300&X-Amz-Signature=e62c046fd2b0073fceffcc021affb1c9cc7774f2e4dae7f0cfe127fb4b0a7e41&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dlibsodium-1.0.16.tar.gz&response-content-type=application%2Foctet-stream
+正在解析主机 github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... 52.216.227.120
+正在连接 github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.216.227.120|:443... 失败：连接超时。
+重试中。
+
+--2019-02-27 17:00:49--  (尝试次数： 2)  https://github-production-release-asset-2e65be.s3.amazonaws.com/7710647/83a2fc2c-e01e-11e7-93d1-34e5a92f4011?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190227%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190227T085837Z&X-Amz-Expires=300&X-Amz-Signature=e62c046fd2b0073fceffcc021affb1c9cc7774f2e4dae7f0cfe127fb4b0a7e41&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dlibsodium-1.0.16.tar.gz&response-content-type=application%2Foctet-stream
+正在连接 github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.216.227.120|:443...  
+正在把输出重定向至 “wget-log”。
+[[0;31mError[0m] Failed to download libsodium-1.0.16.tar.gz!

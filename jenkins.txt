@@ -1,0 +1,7 @@
+账号：admin
+密码：111111
+
+安装路径：var/lib/jenkins
+
+service jenkins start
+service jenkins restart

@@ -1,0 +1,31 @@
+
+
+vue init webpack baoge  
+
+npm run dev //运行项目
+
+npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver
+
+methods函数只对#app节点内的操作有效
+
+var vm=this;
+vm.$toast("切换成功");
+使用toast注意
+
+//类比onclick获取当前dom
+v-on:click="fn($event)"
+methods: {
+    fn: function (e) {
+        e.currentTarget; // 当前元素
+    }
+}
+
+//渲染网页不会先出现代码
+v-cloak
+[v-cloak]{
+  display:none;
+}
+
+vue2.0获取索引
+ v-for="(company,index) in collection" 
+<div class="top" v-on:click="companyDetail(index)">

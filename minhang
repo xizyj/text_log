@@ -1,0 +1,13 @@
+#! /bin/sh
+ 
+echo "Start rdesktop ..."
+echo ""
+ipAddr=32.1.9.39
+user=jgjadmin
+passwd='4rfVGY&ujm'
+echo $ipAddr
+sudo rdesktop -g 1800x960 -a32  -r clipboard:PRIMARYCLIPBOARD -r sound:local -r disk:h=/home/zyj/rdesktop -u $user -p $passwd $ipAddr
+
+echo "Succeeded!"
+ sleep 1
+

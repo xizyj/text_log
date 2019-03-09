@@ -1,0 +1,5 @@
+启动redis
+./redis-server /usr/local/redis/redis.conf
+
+查看redis是否启动
+ps -ef|grep redis
