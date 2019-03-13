@@ -30,6 +30,8 @@ sudo ln -s /home/hfang/opt/gopath/bin/go /usr/bin/go  //软链接
 du -sh * #查看当前目录下所有文件占用的空间
 
 
+nautilus  #打开文件夹
+
 
 
 

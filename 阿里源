@@ -16,3 +16,10 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe #Added by software-properties
 deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
 deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
+
+
+
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo vim /etc/apt/sources.list
+
+
