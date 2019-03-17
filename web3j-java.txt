@@ -4,3 +4,33 @@ $ solc <contract>.sol --bin --abi --optimize -o <output-dir>/    #我的电脑�
 
 打包代码 可以用idea的plugin插件
 web3j solidity generate /path/to/<smart-contract>.bin /path/to/<smart-contract>.abi -o /path/to/src/main/java -p com.your.organisation.name
+
+
+插件：sol文件放resources
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.web3j</groupId>
+                <artifactId>web3j-maven-plugin</artifactId>
+                <version>4.1.0</version>
+                <configuration>
+                    <packageName>com.test</packageName>
+                    <sourceDestination>src/main/java/generated</sourceDestination>
+                    <nativeJavaType>true</nativeJavaType>
+                    <outputFormat>java,bin</outputFormat>
+                    <soliditySourceFiles>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>**/*.sol</include>
+                        </includes>
+                    </soliditySourceFiles>
+                    <outputDirectory>
+                        <java>src/main/java/generated</java>
+                        <bin>src/main/bin/generated</bin>
+                        <abi>src/main/abi/generated</abi>
+                    </outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
