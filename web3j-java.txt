@@ -1,0 +1,6 @@
+编译智能合约：
+$ solc <contract>.sol --bin --abi --optimize -o <output-dir>/    #我的电脑命令是solcjs
+
+
+打包代码 可以用idea的plugin插件
+web3j solidity generate /path/to/<smart-contract>.bin /path/to/<smart-contract>.abi -o /path/to/src/main/java -p com.your.organisation.name
