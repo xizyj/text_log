@@ -42,12 +42,11 @@ https://ropsten.infura.io/<your-token>
 
 3.交易智能合约
 
-
-鎵撳寘浠ｇ爜 鍙互鐢╥dea鐨刾lugin鎻掍欢
+wapper sol files
 web3j solidity generate /path/to/<smart-contract>.bin /path/to/<smart-contract>.abi -o /path/to/src/main/java -p com.your.organisation.name
 
 
-鎻掍欢锛歴ol鏂囦欢鏀緍esources
+.sol files in resources
     <build>
         <plugins>
 
