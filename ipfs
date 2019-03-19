@@ -14,3 +14,6 @@ java 依赖安装
       <version>v1.2.2</version>
     </dependency>
   </dependencies>
+
+
+启动：ipfs daemon
