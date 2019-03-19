@@ -1,0 +1,43 @@
+To generate the wrapper code, compile your smart contract:
+$ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
+
+
+Now you can create and deploy your smart contract:
+
+Web3j web3 = Web3j.build(new HttpService());  // defaults to http://localhost:8545/
+Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
+
+YourSmartContract contract = YourSmartContract.deploy(
+        <web3j>, <credentials>,
+        GAS_PRICE, GAS_LIMIT,
+        <param1>, ..., <paramN>).send();  // constructor params
+
+
+Or use an existing contract:
+
+YourSmartContract contract = YourSmartContract.load(
+        "0x<address>|<ensName>", <web3j>, <credentials>, GAS_PRICE, GAS_LIMIT);
+To transact with a smart contract:
+
+TransactionReceipt transactionReceipt = contract.someMethod(
+             <param1>,
+             ...).send();
+To call a smart contract:
+
+Type result = contract.someMethod(<param1>, ...).send();
+
+
+
+以太坊测试网络/测试链 (Ropsten):
+
+https://ropsten.infura.io/<your-token>
+
+
+
+从广义上讲，以太坊有三种类型的交易
+
+1.从以太坊的一方转移到另一方
+
+2.创建智能合约
+
+3.交易智能合约
