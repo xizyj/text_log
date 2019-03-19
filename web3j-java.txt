@@ -1,12 +1,52 @@
-ç¼–è¯‘æ™ºèƒ½åˆçº¦ï¼š
-$ solc <contract>.sol --bin --abi --optimize -o <output-dir>/    #æˆ‘çš„ç”µè„‘å‘½ä»¤æ˜¯solcjs
+To generate the wrapper code, compile your smart contract:
+$ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
 
 
-æ‰“åŒ…ä»£ç  å¯ä»¥ç”¨ideaçš„pluginæ’ä»¶
+Now you can create and deploy your smart contract:
+
+Web3j web3 = Web3j.build(new HttpService());  // defaults to http://localhost:8545/
+Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
+
+YourSmartContract contract = YourSmartContract.deploy(
+        <web3j>, <credentials>,
+        GAS_PRICE, GAS_LIMIT,
+        <param1>, ..., <paramN>).send();  // constructor params
+
+
+Or use an existing contract:
+
+YourSmartContract contract = YourSmartContract.load(
+        "0x<address>|<ensName>", <web3j>, <credentials>, GAS_PRICE, GAS_LIMIT);
+To transact with a smart contract:
+
+TransactionReceipt transactionReceipt = contract.someMethod(
+             <param1>,
+             ...).send();
+To call a smart contract:
+
+Type result = contract.someMethod(<param1>, ...).send();
+
+
+
+ÒÔÌ«·»²âÊÔÍøÂç/²âÊÔÁ´ (Ropsten):
+
+https://ropsten.infura.io/<your-token>
+
+
+
+´Ó¹ãÒåÉÏ½²£¬ÒÔÌ«·»ÓĞÈıÖÖÀàĞÍµÄ½»Ò×
+
+1.´ÓÒÔÌ«·»µÄÒ»·½×ªÒÆµ½ÁíÒ»·½
+
+2.´´½¨ÖÇÄÜºÏÔ¼
+
+3.½»Ò×ÖÇÄÜºÏÔ¼
+
+wapper sol files
 web3j solidity generate /path/to/<smart-contract>.bin /path/to/<smart-contract>.abi -o /path/to/src/main/java -p com.your.organisation.name
 
 
-æ’ä»¶ï¼šsolæ–‡ä»¶æ”¾resources
+.sol files in resources
     <build>
         <plugins>
 
