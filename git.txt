@@ -67,3 +67,11 @@ git push -u -f origin master #第一次强制提交
 git branch -r
 
 
+#查看所有分支
+$ git branch -a
+# 切换到分支
+$ git checkout master
+# 将develop分支合并到master
+$ git merge -m 'merge develop branch' develop
+
+
