@@ -1,3 +1,7 @@
 格式化代码快捷键 shift+ctrl+alt+l(或者 ctrl+alt+L)
 
 dependencies出现错误，删掉依赖，重新导入，再加入依赖，重新导入（没有卡住的时候）
+
+ctrl+d  向下复制一行
+
+ctrl+shift+r  项目查询字符串
