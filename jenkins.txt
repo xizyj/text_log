@@ -1,5 +1,5 @@
-账号：admin
-密码：111111
+账号：zyj
+密码：123456
 
 安装路径：var/lib/jenkins
 

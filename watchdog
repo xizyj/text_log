@@ -1,0 +1,8 @@
+1.安装 watchdog
+sudo apt install watchdog
+
+2.开启 watchdog 服务
+sudo systemctl enable watchdog.service
+
+3.马上启用 watchdog 服务
+sudo systemctl start watchdog.service
