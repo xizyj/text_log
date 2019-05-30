@@ -1,0 +1,10 @@
+使用ssh-keygen生成私钥公钥对，第1台服务器上操作
+ssh-keygen -t rsa
+一直回车，有选择就确定输入y
+查看生成的公钥
+cat /home/zyj/.ssh/id_rsa.pub
+将公钥推送到第2台服务器上
+ssh-copy-id -i ~/.ssh/id_rsa.pub  root@第2台服务器地址
+需要输入第2台服务器的密码
+测试是否成功
+ssh 第2台服务器地址

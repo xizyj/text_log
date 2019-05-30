@@ -1,0 +1,4 @@
+bash catalina.sh run
+#可以输出tomcat启动日志
+
+ps -ef |grep tomcat

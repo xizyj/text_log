@@ -1,0 +1,6 @@
+//清楚nones镜像
+sudo docker rmi $(sudo docker images -f "dangling=true" -q)
+
+docker images #查看安装的镜像
+
+docker ps   #查看运行镜像
