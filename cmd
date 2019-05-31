@@ -20,7 +20,6 @@ dpkg -l |grep virtualbox
 sudo apt-get remove virtualbox-4.2
 
 sudo apt-get install ubuntu-desktop
-sudo nautilus
 
 top //查看进程
 ps -aux   //查看所有进程
@@ -32,6 +31,8 @@ du -sh * #查看当前目录下所有文件占用的空间
 
 nautilus  #打开文件夹
 
+
+flameshot gui  #截图工具
 
 
 

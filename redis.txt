@@ -1,5 +1,8 @@
 启动redis
 ./redis-server /usr/local/redis/redis.conf
 
+关闭redis
+./redis-cli -h 127.0.0.1 -p 6379 shutdown
+
 查看redis是否启动
 ps -ef|grep redis
