@@ -22,8 +22,12 @@ mysql -u root -p
 运行脚本
 source /home/a.sql
 
+ubuntu下彻底删除mysql
+sudo apt-get remove mysql-*
+dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
 
 mysql远程访问
+update user set host = '%' where user = 'root';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION; 
 flush privileges;
 
