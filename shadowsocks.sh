@@ -134,7 +134,7 @@ centosversion(){
 # Get public IP address
 get_ip(){
     # local IP=$( ip addr | egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | egrep -v "^192\.168|^172\.1[6-9]\.|^172\.2[0-9]\.|^172\.3[0-2]\.|^10\.|^127\.|^255\.|^0\." | head -n 1 )
-    local IP="145.239.174.178"
+    local IP="144.172.116.210"
     [ -z ${IP} ] && IP=$( wget -qO- -t1 -T2 ipv4.icanhazip.com )
     [ -z ${IP} ] && IP=$( wget -qO- -t1 -T2 ipinfo.io/ip )
     [ ! -z ${IP} ] && echo ${IP} || echo
@@ -164,8 +164,8 @@ pre_install(){
     fi
     # Set shadowsocks config password
     echo "Please enter password for shadowsocks-python"
-    read -p "(Default password: teddysun.com):" shadowsockspwd
-    [ -z "${shadowsockspwd}" ] && shadowsockspwd="teddysun.com"
+    read -p "(Default password: dapp1234):" shadowsockspwd
+    [ -z "${shadowsockspwd}" ] && shadowsockspwd="dapp1234"
     echo
     echo "---------------------------"
     echo "password = ${shadowsockspwd}"
@@ -263,7 +263,7 @@ download_files(){
 config_shadowsocks(){
     cat > /etc/shadowsocks.json<<-EOF
 {
-    "server":"0.0.0.0",
+    "server":"144.172.116.210",
     "server_port":${shadowsocksport},
     "local_address":"127.0.0.1",
     "local_port":1080,

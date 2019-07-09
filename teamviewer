@@ -1,2 +1,1 @@
 sudo systemctl start teamviewerd.service
-sudo systemctl start teamviewerd.service

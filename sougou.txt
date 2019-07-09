@@ -1,1 +1,21 @@
 搜狗输入法崩溃问题，删除~/.config 下的搜狗输入配置文件夹： SogouPY 、 SogouPY.users 、 sogou-qimpanel
+
+
+Ubuntu的搜狗输入法重启
+
+方法
+直接重启fcitx即可：
+
+
+# fictx自带的重启
+fcitx -r
+或者执行以下三条：
+
+
+# 获得fcitx的进程id并kill
+pidof fcitx|xargs kill
+# 重新后台模式打开fcitx
+fcitx & 
+# 打开sogou
+sogou-qimpanel &
+

@@ -8,3 +8,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub  root@第2台服务器地址
 需要输入第2台服务器的密码
 测试是否成功
 ssh 第2台服务器地址
+
+
+
+ssh -o ServerAliveInterval=60  root@47.110.11.112 
