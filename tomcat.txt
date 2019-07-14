@@ -1,4 +1,4 @@
-bash catalina.sh run
+﻿bash catalina.sh run
 #可以输出tomcat启动日志
 
 ps -ef |grep tomcat
@@ -20,3 +20,8 @@ ps -ef |grep tomcat
 	<Context docBase="MinHang_war exploded2 archive" path="" debug="0" reloadable="true" />
 </Host>
 
+
+windows8080端口被占用
+1、netstat -ano|findstr "8080"
+2、tasklist
+3、后台删除进程
