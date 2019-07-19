@@ -1,4 +1,4 @@
-bash catalina.sh run
+﻿bash catalina.sh run
 #可以输出tomcat启动日志
 
 ps -ef |grep tomcat
@@ -28,4 +28,9 @@ apt-get install rng-tools
 service rng-tools start
 service rng-tools status
 service rng-tools stop
+
+windows8080端口被占用
+1、netstat -ano|findstr "8080"
+2、tasklist
+3、后台删除进程
 

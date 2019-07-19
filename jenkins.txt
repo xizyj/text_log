@@ -1,7 +1,9 @@
-账号：zyj
+﻿账号：zyj
 密码：123456
 
 安装路径：var/lib/jenkins
 
 service jenkins start
 service jenkins restart
+
+java -jar jenkins.war --httpPort=8081
