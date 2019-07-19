@@ -20,3 +20,12 @@ ps -ef |grep tomcat
 	<Context docBase="MinHang_war exploded2 archive" path="" debug="0" reloadable="true" />
 </Host>
 
+
+tomcat启动慢解决：
+#获取服务
+apt-get install rng-tools  
+#启动服务
+service rng-tools start
+service rng-tools status
+service rng-tools stop
+
