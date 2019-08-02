@@ -32,3 +32,15 @@ webrtc权限
 降低gradle版本
 cordova plugin add cordova-android-support-gradle-release --variable ANDROID_SUPPORT_VERSION=27.0.0
 
+
+创建插件
+plugman create --name DemoPlugin --plugin_id cordova-plugin-demo --plugin_version 1.0.0
+进入插件所在目录
+增加到Android平台
+plugman platform add --platform_name android
+生成package.json
+npm init
+安装本地插件
+cordova plugin add 本地路径
+
+
