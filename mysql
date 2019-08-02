@@ -28,7 +28,7 @@ dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
 
 mysql远程访问
 update user set host = '%' where user = 'root';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'basstoken_2019' WITH GRANT OPTION; 
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'zyj123456' WITH GRANT OPTION; 
 flush privileges;
 
 
@@ -39,5 +39,20 @@ like ？
 用户组:
 # useradd zyj #创建用户 
 # passwd zyj #修改密码 
+
+
+#emoji表情错误
+[client]
+default-character-set = utf8mb4
+
+[mysql]default-character-set = utf8mb4
+
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+init_connect='SET NAMES utf8mb4'
+
+
 
 

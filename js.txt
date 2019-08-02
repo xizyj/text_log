@@ -1,3 +1,6 @@
 localStorage使用：
 localStorage.setItem('local_my_user',JSON.stringify(data.user));
 JSON.parse(localStorage.getItem("local_my_user"));
+
+编译模块为浏览器可识别的文件
+browserify ./source/module.js -o ./dist/dist.js

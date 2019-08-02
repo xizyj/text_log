@@ -4,3 +4,8 @@ sudo docker rmi $(sudo docker images -f "dangling=true" -q)
 docker images #查看安装的镜像
 
 docker ps   #查看运行镜像
+
+
+
+sudo docker rm -f $(sudo docker ps -aq)
+sudo docker rmi -f $(sudo docker images | grep fabcar | awk '{print $3}')
