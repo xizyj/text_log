@@ -17,3 +17,5 @@ java 依赖安装
 
 
 启动：ipfs daemon
+
+ipfs init  #在本地建立节点
