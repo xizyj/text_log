@@ -1,0 +1,11 @@
+./bootstrap.sh -b  #加上-b 如果本地有已经下载的文件就不再下载，不加会继续下载覆盖本地文件，此步下载二进制文件很慢
+
+first-network如果启动不起来，尝试先关闭所有网络，可能是其他网络启动和此网络冲突
+
+启动first网络
+sudo ./byfn.sh -m generate
+sudo ./byfn.sh -m up 
+
+//清理docker缓存
+sudo docker rm -f $(sudo docker ps -aq)
+sudo docker network prune
