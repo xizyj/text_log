@@ -29,6 +29,8 @@ service rng-tools start
 service rng-tools status
 service rng-tools stop
 
+service rngd restart  #centos
+
 windows8080端口被占用
 1、netstat -ano|findstr "8080"
 2、tasklist

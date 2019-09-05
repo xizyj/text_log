@@ -74,5 +74,6 @@ $ git merge -m 'merge develop branch' develop
 
 
 github:awe {key}  //能搜索相关教程
+下载速度小于10k就放弃吧
 
 

@@ -9,3 +9,14 @@ sudo ./byfn.sh -m up
 //清理docker缓存
 sudo docker rm -f $(sudo docker ps -aq)
 sudo docker network prune
+
+正确的java sdk依赖 
+<dependency>
+ <groupId>org.hyperledger.fabric-gateway-java</groupId>
+ <artifactId>fabric-gateway-java</artifactId>
+ <version>1.4.0-SNAPSHOT</version>
+</dependency>
+
+insurance 项目关闭
+cd build-blockchain-insurance-app/web
+docker-compose down
