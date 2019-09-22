@@ -1,0 +1,5 @@
+vscode格式化代码
+shift+command+f
+
+屏幕截图
+command+shift+4
