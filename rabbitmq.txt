@@ -1,0 +1,18 @@
+systemctl status rabbitmq-server   #Active: active (running) 说明处于运行状态
+
+service rabbitmq-server start    # 启动
+service rabbitmq-server stop     # 停止
+
+service rabbitmq-server restart  # 重启
+
+rabbitmq-plugins enable rabbitmq_management   # 启用插件
+service rabbitmq-server restart    # 重启
+
+
+//清空队列
+sudo rabbitmqctl stop_app
+sudo rabbitmqctl reset
+sudo rabbitmqctl start_app
+
+
+rabbitmqctl list_queues  #查看所有队列

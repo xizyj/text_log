@@ -43,4 +43,8 @@ npm init
 安装本地插件
 cordova plugin add 本地路径
 
+固定字体大小
+initWebViewSettings
+settings.setTextZoom(100);
+
 
