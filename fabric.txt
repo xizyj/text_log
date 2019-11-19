@@ -6,6 +6,9 @@ first-network如果启动不起来，尝试先关闭所有网络，可能是其�
 sudo ./byfn.sh -m generate
 sudo ./byfn.sh -m up 
 
+关闭网络
+sudo ./byfn.sh down 
+
 //清理docker缓存
 sudo docker rm -f $(sudo docker ps -aq)
 sudo docker network prune

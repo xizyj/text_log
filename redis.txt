@@ -21,3 +21,5 @@ ps -ef|grep redis
 
 6.清空当前库中的所有 key：flushdb 
 
+redis允许在后台启动，修改redis.conf文件，把daemonize no改成daemonize yes
+
