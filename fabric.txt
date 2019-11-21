@@ -23,3 +23,6 @@ sudo docker network prune
 insurance 项目关闭
 cd build-blockchain-insurance-app/web
 docker-compose down
+
+
+
