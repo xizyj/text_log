@@ -1,0 +1,31 @@
+Postgresql数据库位置
+/Users/zhouyijun/local/data/postgres
+
+cd /usr/local/Cellar/postgresql/11.5_1/bin
+启动：pg_ctl start -D /Users/zhouyijun/local/data/postgres/ -l /Users/zhouyijun/local/data/postgres/server.log 
+
+/usr/local/Cellar/postgresql/11.5_1/bin/pg_ctl -D /Users/zhouyijun/local/data/postgres stop
+/usr/local/Cellar/postgresql/11.5_1/bin/pg_ctl -D /Users/zhouyijun/local/data/postgres/ start
+
+
+登陆
+sudo -u postgres psql
+
+
+设置PostgreSQL允许被远程访问
+
+/usr/local/var/postgres/postgresql.conf
+listen_addresses = '*'
+
+pg_hba.conf
+最后一行
+# TYPE  DATABASE  USER  CIDR-ADDRESS  METHOD
+host  all  all 0.0.0.0/0 md5
+
+
+参考文章
+https://www.jianshu.com/p/58ade73fc68c
+
+
+Ubuntu 远程连接
+https://www.cnblogs.com/Siegel/p/6917213.html

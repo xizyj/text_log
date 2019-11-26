@@ -16,3 +16,6 @@ sudo rabbitmqctl start_app
 
 
 rabbitmqctl list_queues  #查看所有队列
+
+
+brew services start rabbitmq
