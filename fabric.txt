@@ -24,5 +24,11 @@ insurance 项目关闭
 cd build-blockchain-insurance-app/web
 docker-compose down
 
+启动rest server
+Composer-rest-server
+admin@talentdapp
+
+
+docker exec -it cli bash #进入cli容器来运行fabric命令
 
 
