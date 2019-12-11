@@ -3,3 +3,5 @@ shift+command+f
 
 屏幕截图
 command+shift+4
+
+lsof -i :1099 #端口查询

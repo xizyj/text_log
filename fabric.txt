@@ -25,10 +25,29 @@ cd build-blockchain-insurance-app/web
 docker-compose down
 
 启动rest server
-Composer-rest-server
+composer-rest-server
 admin@talentdapp
 
 
 docker exec -it cli bash #进入cli容器来运行fabric命令
+
+
+[Unit]
+Description=composer_rest_server
+
+[Service]
+Type=forking
+
+#EnvironmentFile=/etc/systemd/test.conf
+ExecStart=composer-rest-server -n never -c admin@talentdapp
+
+[Install]
+WantedBy=multi-user.target
+
+
+重新加载更新了的service：systemctl daemon-reload 
+设置composer_rest_server.service自启：systemctl enable composer_rest_server
+启动service systemctl start composer_rest_server
+
 
 
