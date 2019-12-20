@@ -1,0 +1,22 @@
+cd /Users/zhouyijun/local/redisCluter 
+./start.sh
+
+#进入命令行
+redis-cli -p 7000
+cluster meet 127.0.0.1 7001
+cluster meet 127.0.0.1 7002
+cluster meet 127.0.0.1 7003
+cluster meet 127.0.0.1 7004
+cluster meet 127.0.0.1 7005
+
+redis-cli -p 7000 cluster addslots {0..5461}
+redis-cli -p 7001 cluster addslots {5462..10922}
+redis-cli -p 7002 cluster addslots {10923..16383}
+
+#查看集群信息
+redis-cli -p 7000 cluster nodes
+
+#主从复制，3主3从
+redis-cli -p 7003 cluster replicate 7000的NodeID
+redis-cli -p 7004 cluster replicate 7001的NodeID
+redis-cli -p 7005 cluster replicate 7002的NodeID

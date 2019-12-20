@@ -5,3 +5,5 @@ shift+command+f
 command+shift+4
 
 lsof -i :1099 #端口查询
+
+scp /Users/hill/Desktop/start.sh root@104.224.166.36:/root

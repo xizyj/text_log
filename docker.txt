@@ -5,6 +5,9 @@ docker images #查看安装的镜像
 
 docker ps   #查看运行镜像
 
+docker rm -f $(docker ps -aq)
+docker network prune
+
 
 
 sudo docker rm -f $(sudo docker ps -aq)

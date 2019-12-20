@@ -19,3 +19,10 @@ rabbitmqctl list_queues  #查看所有队列
 
 
 brew services start rabbitmq
+
+
+Mac:
+cd /usr/local/Cellar/rabbitmq/3.7.16/sbin
+./rabbitmqctl stop_app #启动
+./rabbitmqctl stop_app #停止
+./rabbitmqctl reset #清空队列，清空队列前需要先停止服务
