@@ -1,0 +1,12 @@
+查看本地安装的所有版本；有可选参数available，显示所有可下载的版本。
+nvm list [available]
+
+#安装指定版本node
+nvm install v8  
+
+#使用特定版本
+nvm use 11.13.0
+
+#卸载
+nvm uninstall 11.13.0
+
