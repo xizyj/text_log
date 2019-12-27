@@ -7,3 +7,14 @@ command+shift+4
 lsof -i :1099 #端口查询
 
 scp /Users/hill/Desktop/start.sh root@104.224.166.36:/root
+
+#显示隐藏文件
+defaults write com.apple.finder AppleShowAllFiles -boolean true;killall Finder
+
+#隐藏隐藏文件
+defaults write com.apple.finder AppleShowAllFiles -boolean false;killall Finder
+
+#服务器后台会话
+screen ls #查看会话列表
+screen -S name  #创建名字为name的会话
+ctrl+a+d #关闭当前会话，后台运行

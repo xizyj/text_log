@@ -13,6 +13,8 @@ mv a.txt b.txt
 lsb_release -a
 
 sudo netstat -ap | grep 8080
+ps aux|grep java
+ps -ef |grep tomcat
 sudo kill -9 pid
 
 dpkg -l |grep virtualbox
